@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackEnd
+namespace BackEnd.ResAndReq.Res.User
 {
-    public class Class1
+    internal class ResUserLogin
     {
     }
 }

@@ -315,6 +315,13 @@ namespace Conexion
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RegisterBodyMetrics")]
+		public ISingleResult<sp_RegisterBodyMetricsResult> sp_RegisterBodyMetrics([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weight", DbType="Decimal(5,2)")] System.Nullable<decimal> weight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Height", DbType="Decimal(5,2)")] System.Nullable<decimal> height, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BodyFatPercentage", DbType="Decimal(5,2)")] System.Nullable<decimal> bodyFatPercentage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WaistCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> waistCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChestCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> chestCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ArmCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> armCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LegCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> legCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Notes", DbType="NVarChar(255)")] string notes)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, weight, height, bodyFatPercentage, waistCircumference, chestCircumference, armCircumference, legCircumference, notes);
+			return ((ISingleResult<sp_RegisterBodyMetricsResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AbandonGoal")]
 		public ISingleResult<sp_AbandonGoalResult> sp_AbandonGoal([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GoalTypeName", DbType="NVarChar(100)")] string goalTypeName)
 		{
@@ -378,6 +385,13 @@ namespace Conexion
 			return ((ISingleResult<sp_GetAttendanceHistoryResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetAttendanceReport")]
+		public ISingleResult<sp_GetAttendanceReportResult> sp_GetAttendanceReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="Date")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserCedula", DbType="NVarChar(20)")] string userCedula)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, startDate, endDate, userCedula);
+			return ((ISingleResult<sp_GetAttendanceReportResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetBodyMetricsHistory")]
 		public ISingleResult<sp_GetBodyMetricsHistoryResult> sp_GetBodyMetricsHistory([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="Date")] System.Nullable<System.DateTime> endDate)
 		{
@@ -392,11 +406,25 @@ namespace Conexion
 			return ((ISingleResult<sp_GetPaymentHistoryResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetPeakHours")]
+		public ISingleResult<sp_GetPeakHoursResult> sp_GetPeakHours([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="Date")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TopN", DbType="Int")] System.Nullable<int> topN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, startDate, endDate, topN);
+			return ((ISingleResult<sp_GetPeakHoursResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetRoutineExercises")]
 		public ISingleResult<sp_GetRoutineExercisesResult> sp_GetRoutineExercises([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoutineName", DbType="NVarChar(100)")] string routineName)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, routineName);
 			return ((ISingleResult<sp_GetRoutineExercisesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetRoutinesReport")]
+		public ISingleResult<sp_GetRoutinesReportResult> sp_GetRoutinesReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Date")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="Date")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="NVarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoutineName", DbType="NVarChar(100)")] string routineName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, startDate, endDate, status, routineName);
+			return ((ISingleResult<sp_GetRoutinesReportResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetUnreadNotifications")]
@@ -425,13 +453,6 @@ namespace Conexion
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, targetCedula);
 			return ((ISingleResult<sp_GetUserProfileByCedulaResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetUserProfileByLlave")]
-		public ISingleResult<sp_GetUserProfileByLlaveResult> sp_GetUserProfileByLlave([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Llave", DbType="NVarChar(255)")] string llave)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), llave);
-			return ((ISingleResult<sp_GetUserProfileByLlaveResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Logout")]
@@ -463,10 +484,10 @@ namespace Conexion
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RegisterBodyMetrics")]
-		public ISingleResult<sp_RegisterBodyMetricsResult> sp_RegisterBodyMetrics([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weight", DbType="Decimal(5,2)")] System.Nullable<decimal> weight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Height", DbType="Decimal(5,2)")] System.Nullable<decimal> height, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BodyFatPercentage", DbType="Decimal(5,2)")] System.Nullable<decimal> bodyFatPercentage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WaistCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> waistCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChestCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> chestCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ArmCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> armCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LegCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> legCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Notes", DbType="NVarChar(255)")] string notes)
+		public ISingleResult<sp_RegisterBodyMetricsResult1> sp_RegisterBodyMetrics1([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weight", DbType="Decimal(5,2)")] System.Nullable<decimal> weight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Height", DbType="Decimal(5,2)")] System.Nullable<decimal> height, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BodyFatPercentage", DbType="Decimal(5,2)")] System.Nullable<decimal> bodyFatPercentage, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WaistCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> waistCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChestCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> chestCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ArmCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> armCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LegCircumference", DbType="Decimal(5,2)")] System.Nullable<decimal> legCircumference, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Notes", DbType="NVarChar(255)")] string notes)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, weight, height, bodyFatPercentage, waistCircumference, chestCircumference, armCircumference, legCircumference, notes);
-			return ((ISingleResult<sp_RegisterBodyMetricsResult>)(result.ReturnValue));
+			return ((ISingleResult<sp_RegisterBodyMetricsResult1>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RegisterExerciseProgress")]
@@ -481,13 +502,6 @@ namespace Conexion
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, membershipTypeName, amount, paymentMethodName, receiptFilePath);
 			return ((ISingleResult<sp_RegisterPaymentResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RegisterUser")]
-		public ISingleResult<sp_RegisterUserResult> sp_RegisterUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cedula", DbType="NVarChar(20)")] string cedula, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(100)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(100)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PasswordHash", DbType="NVarChar(255)")] string passwordHash, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(20)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BirthDate", DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(255)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="NVarChar(50)")] string roleName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cedula, firstName, lastName, email, passwordHash, phoneNumber, birthDate, address, roleName);
-			return ((ISingleResult<sp_RegisterUserResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ScheduleMetricMeasurement")]
@@ -537,6 +551,13 @@ namespace Conexion
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token);
 			return ((ISingleResult<sp_ValidateSessionResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_RegisterUser")]
+		public ISingleResult<sp_RegisterUserResult> sp_RegisterUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cedula", DbType="NVarChar(20)")] string cedula, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(100)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(100)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Llave", DbType="NVarChar(255)")] string llave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PasswordHash", DbType="NVarChar(255)")] string passwordHash, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NVarChar(20)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BirthDate", DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(255)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="NVarChar(50)")] string roleName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cedula, firstName, lastName, email, llave, passwordHash, phoneNumber, birthDate, address, roleName);
+			return ((ISingleResult<sp_RegisterUserResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -7648,6 +7669,50 @@ namespace Conexion
 		}
 	}
 	
+	public partial class sp_RegisterBodyMetricsResult
+	{
+		
+		private string _Result;
+		
+		private string _Message;
+		
+		public sp_RegisterBodyMetricsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this._Result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_AbandonGoalResult
 	{
 		
@@ -8044,6 +8109,50 @@ namespace Conexion
 		}
 	}
 	
+	public partial class sp_GetAttendanceReportResult
+	{
+		
+		private string _Result;
+		
+		private string _Message;
+		
+		public sp_GetAttendanceReportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this._Result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_GetBodyMetricsHistoryResult
 	{
 		
@@ -8132,6 +8241,50 @@ namespace Conexion
 		}
 	}
 	
+	public partial class sp_GetPeakHoursResult
+	{
+		
+		private string _Result;
+		
+		private string _Message;
+		
+		public sp_GetPeakHoursResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this._Result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_GetRoutineExercisesResult
 	{
 		
@@ -8140,6 +8293,50 @@ namespace Conexion
 		private string _Message;
 		
 		public sp_GetRoutineExercisesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this._Result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetRoutinesReportResult
+	{
+		
+		private string _Result;
+		
+		private string _Message;
+		
+		public sp_GetRoutinesReportResult()
 		{
 		}
 		
@@ -8352,212 +8549,6 @@ namespace Conexion
 		}
 	}
 	
-	public partial class sp_GetUserProfileByLlaveResult
-	{
-		
-		private string _Cedula;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Email;
-		
-		private string _PhoneNumber;
-		
-		private System.Nullable<System.DateTime> _BirthDate;
-		
-		private string _Address;
-		
-		private string _RoleName;
-		
-		private string _Status;
-		
-		private System.DateTime _CreatedAt;
-		
-		private string _Result;
-		
-		public sp_GetUserProfileByLlaveResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cedula", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Cedula
-		{
-			get
-			{
-				return this._Cedula;
-			}
-			set
-			{
-				if ((this._Cedula != value))
-				{
-					this._Cedula = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this._FirstName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this._LastName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(20)")]
-		public string PhoneNumber
-		{
-			get
-			{
-				return this._PhoneNumber;
-			}
-			set
-			{
-				if ((this._PhoneNumber != value))
-				{
-					this._PhoneNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BirthDate", DbType="Date")]
-		public System.Nullable<System.DateTime> BirthDate
-		{
-			get
-			{
-				return this._BirthDate;
-			}
-			set
-			{
-				if ((this._BirthDate != value))
-				{
-					this._BirthDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string RoleName
-		{
-			get
-			{
-				return this._RoleName;
-			}
-			set
-			{
-				if ((this._RoleName != value))
-				{
-					this._RoleName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime NOT NULL")]
-		public System.DateTime CreatedAt
-		{
-			get
-			{
-				return this._CreatedAt;
-			}
-			set
-			{
-				if ((this._CreatedAt != value))
-				{
-					this._CreatedAt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
-		public string Result
-		{
-			get
-			{
-				return this._Result;
-			}
-			set
-			{
-				if ((this._Result != value))
-				{
-					this._Result = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_LogoutResult
 	{
 		
@@ -8569,7 +8560,7 @@ namespace Conexion
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
 		public string Result
 		{
 			get
@@ -8585,7 +8576,7 @@ namespace Conexion
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(28) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(34) NOT NULL", CanBeNull=false)]
 		public string Message
 		{
 			get
@@ -8734,14 +8725,14 @@ namespace Conexion
 		}
 	}
 	
-	public partial class sp_RegisterBodyMetricsResult
+	public partial class sp_RegisterBodyMetricsResult1
 	{
 		
 		private string _Result;
 		
 		private string _Message;
 		
-		public sp_RegisterBodyMetricsResult()
+		public sp_RegisterBodyMetricsResult1()
 		{
 		}
 		
@@ -8850,50 +8841,6 @@ namespace Conexion
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this._Message = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_RegisterUserResult
-	{
-		
-		private string _Result;
-		
-		private string _Message;
-		
-		public sp_RegisterUserResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
-		public string Result
-		{
-			get
-			{
-				return this._Result;
-			}
-			set
-			{
-				if ((this._Result != value))
-				{
-					this._Result = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(44) NOT NULL", CanBeNull=false)]
 		public string Message
 		{
 			get
@@ -9158,6 +9105,50 @@ namespace Conexion
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(14) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_RegisterUserResult
+	{
+		
+		private string _Result;
+		
+		private string _Message;
+		
+		public sp_RegisterUserResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Result", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Result
+		{
+			get
+			{
+				return this._Result;
+			}
+			set
+			{
+				if ((this._Result != value))
+				{
+					this._Result = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(44) NOT NULL", CanBeNull=false)]
 		public string Message
 		{
 			get
