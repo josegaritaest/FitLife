@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackEnd.ResAndReq.Req.User
 {
-    public class ReqLogingUser
+    public class ReqUserLogin
     {
         public string Email { get; set; }
         public string Password { get; set; }

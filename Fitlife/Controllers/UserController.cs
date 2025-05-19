@@ -23,5 +23,13 @@ namespace Fitlife.Controllers
             return new LogUser().Registrar(req);
                 
          }
+
+        [HttpPost]
+        [Route("login")]
+        public ResUserLogin loginUser(ReqUserLogin req)
+        {
+            return new LogUser().Login(req);
+        }
+
     }
 }

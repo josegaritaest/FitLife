@@ -2,6 +2,7 @@
 using BackEnd.Enum;
 using BackEnd.Logic;
 using BackEnd.ResAndReq.Req.User;
+using BackEnd.Helpers;
 using BackEnd.ResAndReq.Res.User;
 using Conexion;
 using System;
@@ -11,7 +12,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
 namespace BackEnd.Logic
 {
     public class LogUser
@@ -97,9 +97,8 @@ namespace BackEnd.Logic
                 {
                     return res;
                 }
-                string password = "asdadasd";
-                string llave = Guid.NewGuid().ToString("N");
-                string passHash = HashearPassword(password, llave);
+                string password = Helper.GenerarPassword(8);
+                string passHash = Helper.HashearPassword(password);
                 using (FitLifeDataContext linq = new FitLifeDataContext())
                 {
                     var resultado = linq.sp_RegisterUser(
@@ -107,7 +106,6 @@ namespace BackEnd.Logic
                         req.FirstName,
                         req.LastName,
                         req.Email,
-                        llave,
                         passHash,
                         req.PhoneNumber,
                         req.BirthDate,
@@ -116,7 +114,7 @@ namespace BackEnd.Logic
 
                     ).FirstOrDefault();
 
-                    if (resultado == null || resultado.Result == "0")
+                    if (resultado == null || resultado.Result == "FAILED")
                     {
                         res.Error.Add(new Error
                         {
@@ -139,6 +137,112 @@ namespace BackEnd.Logic
                 });
             }
 
+            return res;
+        }
+        public ResUserLogin Login(ReqUserLogin req)
+        {
+            ResUserLogin res = new ResUserLogin()
+            {
+                Error = new List<Entities.Error>(),
+                Result = false,
+                User = new Entities.User(),
+                Token = string.Empty,
+                ExpiresAt = DateTime.MinValue
+            };
+            try
+            {
+                #region Validaciones
+                if (req == null)
+                {
+                    res.Error.Add(new Error
+                    {
+                        ErrorCode = (int)EnumErrores.requestNulo,
+                        Message = "Request nulo"
+                    });
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(req.Email))
+                    {
+                        res.Error.Add(new Error
+                        {
+                            ErrorCode = (int)EnumErrores.cedulaFaltante,
+                            Message = "Cédula vacío"
+                        });
+                    }
+                    if (string.IsNullOrEmpty(req.Password))
+                    {
+                        res.Error.Add(new Error
+                        {
+                            ErrorCode = (int)EnumErrores.passwordFaltante,
+                            Message = "Password vacío"
+                        });
+                    }
+                }
+                #endregion
+                if (res.Error.Any())
+                {
+                    return res;
+                }
+                using (FitLifeDataContext linq = new FitLifeDataContext())
+                {
+                    var passwordHash = linq.Users.Where(u => u.Email == req.Email).Select(u => u.PasswordHash).FirstOrDefault();
+                    if (passwordHash == null)
+                    {
+                        res.Error.Add(new Error
+                        {
+                            ErrorCode = (int)EnumErrores.usuarioNoEncontrado,
+                            Message = "Usuario no encontrado"
+                        });
+                        return res;
+                    }
+                    if (!Helper.VerificarPassword(req.Password, passwordHash))
+                    {
+                        res.Error.Add(new Error
+                        {
+                            ErrorCode = (int)EnumErrores.passwordIncorrecto,
+                            Message = "Password incorrecto"
+                        });
+                        return res;
+                    }
+                    var resultado = linq.sp_UserLogin(
+                        req.Email,
+                        req.Password
+                    ).FirstOrDefault();
+
+                    if (resultado == null || resultado.Result == "FAILED")
+                    {
+                        res.Error.Add(new Error
+                        {
+                            ErrorCode = (int)EnumErrores.errorDesconocido,
+                            Message = resultado.Message
+                        });
+                    }
+                    else
+                    {
+                        res.Result = true;
+                        res.User.Cedula = resultado.Cedula;
+                        res.User.FirstName = resultado.FirstName;
+                        res.User.LastName = resultado.LastName;
+                        res.User.Email = resultado.Email;
+                        res.User.PhoneNumber = resultado.PhoneNumber;
+                        res.User.BirthDate = resultado.BirthDate;
+                        res.User.Address = resultado.Address;
+                        res.User.Status = resultado.Status;
+                        res.User.Role = resultado.RoleName;     
+                        res.Token = resultado.Token;
+                        res.ExpiresAt = (DateTime)resultado.ExpiresAt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Error.Add(new Error
+                {
+                    ErrorCode = (int)EnumErrores.excepcionLogica,
+                    Message = ex.Message
+                });
+            }
             return res;
         }
 
@@ -171,32 +275,7 @@ namespace BackEnd.Logic
             return Regex.IsMatch(password,
                 @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$");
         }
-
-        public string GenerarPin(int longitud)
-        {
-            if (longitud <= 0) return string.Empty;
-
-            Random rnd = new Random();
-            StringBuilder pin = new StringBuilder();
-
-            for (int i = 0; i < longitud; i++)
-            {
-                pin.Append(rnd.Next(0, 10));
-            }
-
-            return pin.ToString();
-        }
-
-        private string HashearPassword(string passwordUsuario, string key)
-        {
-            using (var md5 = MD5.Create())
-            {
-                byte[] inputBytes = Encoding.UTF8.GetBytes(passwordUsuario + key);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-            }
-        }
         #endregion
+
     }
 }

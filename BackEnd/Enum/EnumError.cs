@@ -71,6 +71,7 @@ namespace BackEnd.Enum
         fechasInvalidas = 59,
         tipoEstadisticaInvalido = 60,
         sesionNula = 101,
-        sesionNoEncontrada = 102
+        sesionNoEncontrada = 102,
+        passwordIncorrecto = 103
     }
 }
