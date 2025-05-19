@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FitLife2" Class="FitLifeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FitLife2;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="Conexion.Properties.Settings" SettingsPropertyName="FitLife2ConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FitLife" Class="FitLifeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-5K2SBFSQ;Initial Catalog=FitLife;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Conexion.Properties.Settings" SettingsPropertyName="FitLifeConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Attendance" Member="Attendances">
     <Type Name="Attendance">
       <Column Name="AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -659,6 +659,28 @@
       <Column Name="ExpiresAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Result" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="Message" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_RegisterCheckOut" Method="sp_RegisterCheckOut">
+    <Parameter Name="Token" Parameter="token" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="sp_RegisterCheckOutResult">
+      <Column Name="Result" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CheckInTime" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CheckOutTime" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DurationMinutes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetAttendanceStatus" Method="sp_GetAttendanceStatus">
+    <Parameter Name="Token" Parameter="token" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="sp_GetAttendanceStatusResult">
+      <Column Name="Result" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AttendanceStatus" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="HasActiveCheckin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CheckInTime" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MinutesElapsed" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActionAvailable" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -69,10 +69,17 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enum\EnumError.cs" />
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Logic\Attendance\LogAttendance.cs" />
     <Compile Include="Logic\LogUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResAndReq\Req\Attendance\ReqAttendanceStatus.cs" />
+    <Compile Include="ResAndReq\Req\Attendance\ReqCheckIn.cs" />
+    <Compile Include="ResAndReq\Req\Attendance\ReqCheckOut.cs" />
     <Compile Include="ResAndReq\Req\User\ReqAddUser.cs" />
     <Compile Include="ResAndReq\Req\User\ReqUserLogin.cs" />
+    <Compile Include="ResAndReq\Res\Attendance\ResAttendanceStatus.cs" />
+    <Compile Include="ResAndReq\Res\Attendance\ResCheckIn.cs" />
+    <Compile Include="ResAndReq\Res\Attendance\ResCheckOut.cs" />
     <Compile Include="ResAndReq\Res\ResBase.cs" />
     <Compile Include="ResAndReq\Res\User\ResAddUser.cs" />
     <Compile Include="ResAndReq\Res\User\ResUserLogin.cs" />
@@ -86,5 +93,6 @@
       <Name>Conexion</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
