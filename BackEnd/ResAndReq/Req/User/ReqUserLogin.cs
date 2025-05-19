@@ -10,5 +10,9 @@ namespace BackEnd.ResAndReq.Req.User
     {
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public string ipAddress { get; set; }
+        public string deviceName { get; set; }
+
     }
 }

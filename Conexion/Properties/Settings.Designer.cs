@@ -33,5 +33,27 @@ namespace Conexion.Properties {
                 return ((string)(this["FitLife2ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-5K2SBFSQ;Initial Catalog=FitLife;Integrated Security=True;Conn" +
+            "ect Timeout=30;Encrypt=True;TrustServerCertificate=True")]
+        public string FitLifeConnectionString {
+            get {
+                return ((string)(this["FitLifeConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-7UPKFS7\\SQLEXPRESS;Initial Catalog=FitLife2;Integrated Securi" +
+            "ty=True;Encrypt=True;TrustServerCertificate=True")]
+        public string FitLife2 {
+            get {
+                return ((string)(this["FitLife2"]));
+            }
+        }
     }
 }

@@ -63,21 +63,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\MembershipType.cs" />
+    <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Error.cs" />
+    <Compile Include="Entities\PaymentMethod.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Session.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enum\EnumError.cs" />
     <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Logic\Attendance\LogAttendance.cs" />
     <Compile Include="Logic\LogUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResAndReq\Req\Attendance\ReqAttendanceStatus.cs" />
+    <Compile Include="ResAndReq\Req\Attendance\ReqCheckIn.cs" />
+    <Compile Include="ResAndReq\Req\Attendance\ReqCheckOut.cs" />
+    <Compile Include="ResAndReq\Req\Membership\ReqGetMembership.cs" />
+    <Compile Include="ResAndReq\Req\Membership\ResRegisterPayment.cs" />
+    <Compile Include="ResAndReq\Req\Payment\ReqApprovePayment.cs" />
+    <Compile Include="ResAndReq\Req\Payment\ReqRegisterPayment.cs" />
     <Compile Include="ResAndReq\Req\User\ReqAddUser.cs" />
     <Compile Include="ResAndReq\Req\User\ReqUserLogin.cs" />
+    <Compile Include="ResAndReq\Res\Attendance\ResAttendanceStatus.cs" />
+    <Compile Include="ResAndReq\Res\Attendance\ResCheckIn.cs" />
+    <Compile Include="ResAndReq\Res\Attendance\ResCheckOut.cs" />
+    <Compile Include="ResAndReq\Res\Membership\ResCheckMembershipStatus.cs" />
+    <Compile Include="ResAndReq\Res\Membership\ResGetActiveMembership.cs" />
+    <Compile Include="ResAndReq\Res\Membership\ResGetMembershipTypes.cs" />
+    <Compile Include="ResAndReq\Res\Payment\ResApprovePayment.cs" />
+    <Compile Include="ResAndReq\Res\Payment\ResGetPaymentHistory.cs" />
+    <Compile Include="ResAndReq\Res\Payment\ResRegisterPayment.cs" />
     <Compile Include="ResAndReq\Res\ResBase.cs" />
     <Compile Include="ResAndReq\Res\User\ResAddUser.cs" />
     <Compile Include="ResAndReq\Res\User\ResUserLogin.cs" />
+    <Compile Include="Entities\Payment.cs" />
+    <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\PaymentMethod.cs" />
+    <Compile Include="Entities\MembershipType.cs" />
+    <Compile Include="ResAndReq\Req\Payment\ReqRegisterPayment.cs" />
+    <Compile Include="ResAndReq\Req\Payment\ReqApprovePayment.cs" />
+    <Compile Include="ResAndReq\Req\Membership\ReqGetMembership.cs" />
+    <Compile Include="ResAndReq\Res\Payment\ResRegisterPayment.cs" />
+    <Compile Include="ResAndReq\Res\Payment\ResApprovePayment.cs" />
+    <Compile Include="ResAndReq\Res\Payment\ResGetPaymentHistory.cs" />
+    <Compile Include="ResAndReq\Res\Membership\ResGetActiveMembership.cs" />
+    <Compile Include="ResAndReq\Res\Membership\ResCheckMembershipStatus.cs" />
+    <Compile Include="ResAndReq\Res\Membership\ResGetMembershipTypes.cs" />
+    <Compile Include="Logic\Payment\LogPayment.cs" />
+    <Compile Include="Logic\Membership\LogMembership.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -86,5 +123,6 @@
       <Name>Conexion</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
