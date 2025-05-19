@@ -207,7 +207,9 @@ namespace BackEnd.Logic
                     }
                     var resultado = linq.sp_UserLogin(
                         req.Email,
-                        req.Password
+                        req.Password,
+                        req.ipAddress,
+                        req.deviceName
                     ).FirstOrDefault();
 
                     if (resultado == null || resultado.Result == "FAILED")
