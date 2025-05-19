@@ -251,8 +251,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Attendance\" />
+<<<<<<< HEAD
     <Folder Include="Views\Membership\" />
     <Folder Include="Views\Payment\" />
+=======
+>>>>>>> 4a4a01ec82ed3ecf5ffda0bed6d410cfb132bc21
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

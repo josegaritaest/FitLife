@@ -79,21 +79,27 @@
     <Compile Include="ResAndReq\Req\Attendance\ReqAttendanceStatus.cs" />
     <Compile Include="ResAndReq\Req\Attendance\ReqCheckIn.cs" />
     <Compile Include="ResAndReq\Req\Attendance\ReqCheckOut.cs" />
+<<<<<<< HEAD
     <Compile Include="ResAndReq\Req\Membership\ReqGetMembership.cs" />
     <Compile Include="ResAndReq\Req\Membership\ResRegisterPayment.cs" />
     <Compile Include="ResAndReq\Req\Payment\ReqApprovePayment.cs" />
     <Compile Include="ResAndReq\Req\Payment\ReqRegisterPayment.cs" />
+=======
+>>>>>>> 4a4a01ec82ed3ecf5ffda0bed6d410cfb132bc21
     <Compile Include="ResAndReq\Req\User\ReqAddUser.cs" />
     <Compile Include="ResAndReq\Req\User\ReqUserLogin.cs" />
     <Compile Include="ResAndReq\Res\Attendance\ResAttendanceStatus.cs" />
     <Compile Include="ResAndReq\Res\Attendance\ResCheckIn.cs" />
     <Compile Include="ResAndReq\Res\Attendance\ResCheckOut.cs" />
+<<<<<<< HEAD
     <Compile Include="ResAndReq\Res\Membership\ResCheckMembershipStatus.cs" />
     <Compile Include="ResAndReq\Res\Membership\ResGetActiveMembership.cs" />
     <Compile Include="ResAndReq\Res\Membership\ResGetMembershipTypes.cs" />
     <Compile Include="ResAndReq\Res\Payment\ResApprovePayment.cs" />
     <Compile Include="ResAndReq\Res\Payment\ResGetPaymentHistory.cs" />
     <Compile Include="ResAndReq\Res\Payment\ResRegisterPayment.cs" />
+=======
+>>>>>>> 4a4a01ec82ed3ecf5ffda0bed6d410cfb132bc21
     <Compile Include="ResAndReq\Res\ResBase.cs" />
     <Compile Include="ResAndReq\Res\User\ResAddUser.cs" />
     <Compile Include="ResAndReq\Res\User\ResUserLogin.cs" />
